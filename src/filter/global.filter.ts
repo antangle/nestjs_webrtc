@@ -22,8 +22,8 @@ export class GlobalExceptionFilter extends BaseExceptionFilter {
     //for logging
     let data: any;
     let msg: string;
-
-    this.logger.warn(exception);
+    console.log(exception);
+//    this.logger.warn(exception);
     if(exception.message) msg = exception.message;
     
     //for api response

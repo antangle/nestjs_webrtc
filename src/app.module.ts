@@ -1,7 +1,7 @@
+import { AppGateway } from './gateway/socket.gateway';
+import { AppController } from './app.controller';
 import { ConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
-import { utilities as nestWinstonModuleUtilities, WinstonModule } from 'nest-winston';
-import * as winston from 'winston';
 import { MyTypeormModule } from './database/typeorm.module';
 
 @Module({
@@ -10,8 +10,9 @@ import { MyTypeormModule } from './database/typeorm.module';
       isGlobal: true,
       envFilePath: process.env.NODE_ENV == 'dev' ? '.env.dev' : '.env'
     }),
-    MyTypeormModule,
+    MyTypeormModule,    
   ],
-  controllers: [],
-}) 
+  providers: [AppGateway],
+  controllers: [AppController],
+})
 export class AppModule {}
