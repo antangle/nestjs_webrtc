@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { ConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 import { MyTypeormModule } from './database/typeorm.module';
+import { UsersModule } from './module/users/users.module';
 
 @Module({
   imports: [
@@ -10,7 +11,8 @@ import { MyTypeormModule } from './database/typeorm.module';
       isGlobal: true,
       envFilePath: process.env.NODE_ENV == 'dev' ? '.env.dev' : '.env'
     }),
-    MyTypeormModule,    
+    MyTypeormModule,
+    UsersModule,
   ],
   providers: [AppGateway],
   controllers: [AppController],

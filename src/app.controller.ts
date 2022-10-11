@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Redirect, Render } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 
-@Controller('')
+@Controller('webrtc')
 export class AppController {
   constructor() {}
   
